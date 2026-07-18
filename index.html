@@ -52,6 +52,14 @@
       height: 100%;
       border: none;
     }
+
+    /* área onde o Panda renderiza o botão no tempo */
+    .panda-button {
+      width: 100%;
+      max-width: 620px;
+      margin-top: 24px;
+      text-align: center;
+    }
   </style>
 </head>
 <body>
@@ -70,6 +78,24 @@
       fetchpriority="high">
     </iframe>
   </div>
+
+  <!-- Botão no tempo, gerado pelo painel do Panda -->
+  <div class="panda-button" id="c50eb332-d90d-41f3-8199-27074f136226"></div>
+
+  <script>
+    if (!document.querySelector('script[src^="https://player.pandavideo.com.br/api.v2.js"]')) {
+      let s = document.createElement('script');
+      s.src = 'https://player.pandavideo.com.br/api.v2.js';
+      s.async = true;
+      document.head.appendChild(s);
+    }
+    window.pandascripttag = window.pandascripttag || [];
+    window.pandascripttag.push(function () {
+      const p = new PandaPlayer('panda-54af5feb-b8d3-4bc0-8f6b-aebd5b8d9b7b', {
+        onReady() { p.loadButtonInTime({ fetchApi: true }); }
+      });
+    });
+  </script>
 
 </body>
 </html>
