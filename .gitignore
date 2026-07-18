@@ -1,0 +1,7 @@
+# Vídeo hospedado no Panda — não subir pro repositório
+*.MOV
+*.mov
+*.mp4
+
+# Sistema
+.DS_Store
